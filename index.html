@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handson-1_MongoDB</title>
+</head>
+
+<body>
+    <header>
+        <h2>Create a database , give it name like ""Human_Resource"". Create a collection inside this named ""employee""
+        </h2>
+    </header>
+
+    <section>
+        <h3>1.Query the collection ""employee"" and list all the documents</h3>
+        <pre>Human_Resourse> db.employee.find()
+[
+  {
+    _id: ObjectId("6419cf460c3f8194dc36fc12"),
+    firstName: 'John',
+    lastName: 'Doe',
+    salary: '25000',
+    department: 'HR',
+    lastCompany: 'X',
+    lastSalary: '10000',
+    overallExp: '2',
+    contactInfo: '1234567890',
+    yearGrad: '2016',
+    gradStream: 'CSE'
+  },
+  {
+    _id: ObjectId("6419d0570c3f8194dc36fc13"),
+    firstName: 'Rohan',
+    lastName: 'Jame',
+    salary: '30000',
+    department: 'Technical',
+    lastCompany: 'Y',
+    lastSalary: '15000',
+    overallExp: '1',
+    contactInfo: '1234567860',
+    yearGrad: '2015',
+    gradStream: 'CSE'
+  },
+  {
+    _id: ObjectId("6419d0f30c3f8194dc36fc14"),
+    firstName: 'Jame',
+    lastName: 'Doe',
+    salary: '35000',
+    department: 'Accounts',
+    lastCompany: 'Z',
+    lastSalary: '20000',
+    overallExp: '1',
+    contactInfo: '123567890',
+    yearGrad: '2019',
+    gradStream: 'ECE'
+  },
+  {
+    _id: ObjectId("6419d3bd0c3f8194dc36fc15"),
+    firstName: 'Sao',
+    lastName: 'Avika',
+    salary: '30000',
+    department: 'Sales',
+    lastCompany: 'Y',
+    lastSalary: '15000',
+    overallExp: '2',
+    contactInfo: '1234567860',
+    yearGrad: '2015',
+    gradStream: 'CSE'
+  },
+  {
+    _id: ObjectId("6419d5bd0c3f8194dc36fc16"),
+    firstName: 'John',
+    lastName: 'Doe',
+    salary: '25000',
+    department: 'HR',
+    lastCompany: 'X',
+    lastSalary: '10000',
+    overallExp: '2',
+    contactInfo: '1234567890',
+    yearGrad: '2016',
+    gradStream: 'CSE'
+  },
+  {
+    _id: ObjectId("6419d5d50c3f8194dc36fc17"),
+    firstName: 'Rohani',
+    lastName: 'Jame',
+    salary: '30000',
+    department: 'Technical',
+    lastCompany: 'Y',
+    lastSalary: '15000',
+    overallExp: '1',
+    contactInfo: '1234567860',
+    yearGrad: '2015',
+    gradStream: 'CSE'
+  },
+  {
+    _id: ObjectId("6419d5db0c3f8194dc36fc18"),
+    firstName: 'Sao',
+    lastName: 'Avika',
+    salary: '30000',
+    department: 'Sales',
+    lastCompany: 'Y',
+    lastSalary: '15000',
+    overallExp: '2',
+    contactInfo: '1234567860',
+    yearGrad: '2015',
+    gradStream: 'CSE'
+  }
+]
+</pre>
+        <hr>
+        <h2>2.Query the collection ""employee"" and list the employees who are having salary more than 30000</h2>
+        <pre>Human_Resourse> db.employee.find({"salary":{"$gt":30000}})
+[
+  {
+    _id: ObjectId("6419d0f30c3f8194dc36fc14"),
+    firstName: 'Jame',
+    lastName: 'Doe',
+    salary: 35000,
+    department: 'Accounts',
+    lastCompany: 'Z',
+    lastSalary: '20000',
+    overallExp: '1',
+    contactInfo: '123567890',
+    yearGrad: '2019',
+    gradStream: 'ECE'
+  }
+]</pre>
+        <hr>
+        <h3>3.Query the collection ""employee"" and list the employees who are having experience more than 2 years.</h3>
+        <pre>Human_Resourse> db.employee.find({"overallExp":{"$gte":"2"}})
+[
+  {
+    _id: ObjectId("6419cf460c3f8194dc36fc12"),
+    firstName: 'John',
+    lastName: 'Doe',
+    salary: '25000',
+    department: 'HR',
+    lastCompany: 'X',
+    lastSalary: '10000',
+    overallExp: '2',
+    contactInfo: '1234567890',
+    yearGrad: '2016',
+    gradStream: 'CSE'
+  },
+  {
+    _id: ObjectId("6419d3bd0c3f8194dc36fc15"),
+    firstName: 'Sao',
+    lastName: 'Avika',
+    salary: '30000',
+    department: 'Sales',
+    lastCompany: 'Y',
+    lastSalary: '15000',
+    overallExp: '2',
+    contactInfo: '1234567860',
+    yearGrad: '2015',
+    gradStream: 'CSE'
+  },
+  {
+    _id: ObjectId("6419d5bd0c3f8194dc36fc16"),
+    firstName: 'John',
+    lastName: 'Doe',
+    salary: '25000',
+    department: 'HR',
+    lastCompany: 'X',
+    lastSalary: '10000',
+    overallExp: '2',
+    contactInfo: '1234567890',
+    yearGrad: '2016',
+    gradStream: 'CSE'
+  },
+  {
+    _id: ObjectId("6419d5db0c3f8194dc36fc18"),
+    firstName: 'Sao',
+    lastName: 'Avika',
+    salary: '30000',
+    department: 'Sales',
+    lastCompany: 'Y',
+    lastSalary: '15000',
+    overallExp: '2',
+    contactInfo: '1234567860',
+    yearGrad: '2015',
+    gradStream: 'CSE'
+  }
+]</pre>
+
+        <hr>
+        <h3>4.Query the collection ""employee"" and list the employees who are graduated after 2015 and having
+            experience more than 1 year </h3>
+        <pre>
+    Human_Resourse> db.employee.find({" yearGrad":"2015"}&&{"overallExp":{"$gt":"1"}})
+[
+  {
+    _id: ObjectId("6419cf460c3f8194dc36fc12"),
+    firstName: 'John',
+    lastName: 'Doe',
+    salary: '25000',
+    department: 'HR',
+    lastCompany: 'X',
+    lastSalary: '10000',
+    overallExp: '2',
+    contactInfo: '1234567890',
+    yearGrad: '2016',
+    gradStream: 'CSE'
+  },
+  {
+    _id: ObjectId("6419d3bd0c3f8194dc36fc15"),
+    firstName: 'Sao',
+    lastName: 'Avika',
+    salary: '30000',
+    department: 'Sales',
+    lastCompany: 'Y',
+    lastSalary: '15000',
+    overallExp: '2',
+    contactInfo: '1234567860',
+    yearGrad: '2015',
+    gradStream: 'CSE'
+  },
+  {
+    _id: ObjectId("6419d5bd0c3f8194dc36fc16"),
+    firstName: 'John',
+    lastName: 'Doe',
+    salary: '25000',
+    department: 'HR',
+    lastCompany: 'X',
+    lastSalary: '10000',
+    overallExp: '2',
+    contactInfo: '1234567890',
+    yearGrad: '2016',
+    gradStream: 'CSE'
+  },
+  {
+    _id: ObjectId("6419d5db0c3f8194dc36fc18"),
+    firstName: 'Sao',
+    lastName: 'Avika',
+    salary: '30000',
+    department: 'Sales',
+    lastCompany: 'Y',
+    lastSalary: '15000',
+    overallExp: '2',
+    contactInfo: '1234567860',
+    yearGrad: '2015',
+    gradStream: 'CSE'
+  }
+]</pre>
+        <hr>
+        <h3>5.Query the collection ""employee"" and update the salary of the employee whose salary is greater than 70000
+            to 65000.</h3>
+        <pre>
+    Human_Resourse> db.employee.updateMany({"salary":"70000"},{"$set":{"salary":"65000"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 0,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+</pre>
+
+        <hr>
+        <h3>6.Delete all the documents from ""employee"" where last company is Y"</h3>
+        <pre>Human_Resourse> db.employee.deleteMany({"lastCompany":"Y"})
+{ acknowledged: true, deletedCount: 4 }</pre>
+    </section>
+</body>
+
+</html>
